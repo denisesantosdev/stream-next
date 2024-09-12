@@ -23,49 +23,6 @@
       var(--vivid-pink) 50%,
       var(--electric-violet) 100%
     ); -->
-<h1>Routes</h1>
-<p-button label="Submit" />
-<nav>
-  <ul>
-    <li>
-      <a
-        routerLink="auth"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        >Sign In</a
-      >
-    </li>
-    <li>
-      <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page"
-        >Home</a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="search"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        >Search Results</a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="user"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        >User Page</a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="movie"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        >Movie Details</a
-      >
-    </li>
-  </ul>
-</nav>
-
+<app-header></app-header>
 
 <router-outlet></router-outlet>
