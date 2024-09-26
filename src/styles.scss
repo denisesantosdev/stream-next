@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-purple/theme.css";
 @import "primeicons/primeicons.css";
 
 * {
-
-    outline: 1px solid red;
+  /*  outline: 1px solid red; */
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
