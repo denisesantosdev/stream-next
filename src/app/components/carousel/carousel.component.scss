@@ -1,0 +1,46 @@
+@use "../../styles/variables.scss";
+
+.carousel-wrapper {
+  max-width: variables.$breakpoint-lg;
+  margin: auto;
+}
+
+.carousel__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.carousel__item {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.carousel__item__image {
+  border-radius: 0.5rem;
+}
+
+.carousel__item__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+}
+
+.carousel__item__info {
+  h3 {
+    margin-block: 0.5rem;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  div {
+    margin-bottom: 0.5rem;
+  }
+}

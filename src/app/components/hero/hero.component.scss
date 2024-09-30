@@ -1,11 +1,11 @@
 @use "../../styles/variables.scss";
 
 .hero {
+  height: 500px;
   position: absolute;
   top: 0;
   z-index: -2;
   inset: 0;
-  height: 500px;
 }
 
 .hero__image {

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-purple/theme.css";
+@import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
 * {
@@ -10,4 +11,8 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+img {
+  display: block;
 }
