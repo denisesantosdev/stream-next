@@ -9,4 +9,8 @@ import { TooltipModule } from 'primeng/tooltip';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
-export class HeroComponent {}
+export class HeroComponent {
+  heroImageUrl: string = 'https://dummyimage.com/500x300.jpg';
+
+  heroStyles: string = `background-image:linear-gradient(to top, white, transparent) , url(${this.heroImageUrl})`;
+}
