@@ -1,0 +1,35 @@
+@use "../../styles/variables.scss";
+
+.footer-wrapper {
+  max-width: variables.$breakpoint-lg;
+  margin: auto;
+  text-align: center;
+}
+
+.link-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: .5rem;
+  
+  @media (min-width: variables.$breakpoint-sm ) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.link {
+  display: flex;
+  place-items: center;
+  gap: .7rem;
+  text-decoration: none;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-weight: 600
+  };
+}
