@@ -12,5 +12,5 @@ import { TooltipModule } from 'primeng/tooltip';
 export class HeroComponent {
   heroImageUrl: string = 'https://dummyimage.com/500x300.jpg';
 
-  heroStyles: string = `background-image:linear-gradient(to top, white, transparent) , url(${this.heroImageUrl})`;
+  heroStyles: string = `background-image:linear-gradient(to top, #121212, #1212129f) , url(${this.heroImageUrl})`;
 }
