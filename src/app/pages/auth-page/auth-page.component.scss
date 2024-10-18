@@ -1,0 +1,44 @@
+@use "../../styles/variables.scss";
+
+.create-account {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: variables.$breakpoint-xs;
+    height: 70vh;
+    margin: auto;
+    place-content: center;
+    
+    h1 {
+        font-size: variables.$font-size-xl;
+        line-height: 1.3;
+        text-align: center;
+    }
+    
+    @media (min-width: variables.$breakpoint-sm) {
+        height: 80vh;
+        
+    }
+}
+
+.create-account__input-wrapper {
+    display: grid;
+    justify-items: center;
+    gap: 2.5rem;
+
+
+    input {
+        width: 270px;
+    }
+}
+
+.create-account__button-wrapper {
+  display: grid;
+  justify-items: center;
+  margin-top: 5rem;
+
+  p {
+    font-size: variables.$font-size-sm;
+    opacity: .7;
+  }
+}

@@ -1,1 +1,18 @@
-<p>auth-page works!</p>
+<main class="create-account">
+  <div>
+    <div class="create-account__input-wrapper">
+        <p-floatLabel>
+          <input type="email" pInputText id="username"/>
+          <label for="username">Email</label>
+        </p-floatLabel>
+        <p-floatLabel>
+          <p-password [toggleMask]="true" />
+          <label for="password">Password</label>
+        </p-floatLabel>
+    </div>
+    <div class="create-account__button-wrapper">
+      <p-button>Create account</p-button>
+      <p>or <a href="">sign in</a></p>
+    </div>
+  </div>
+</main>
