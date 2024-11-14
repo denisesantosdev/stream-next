@@ -1,5 +1,13 @@
 <main>
   <app-hero></app-hero>
 
-  <app-carousel carouselTitle="Trending" carouselIcon="sparkles"></app-carousel>
+  @if (isLoading) {
+  <p>Loading...</p>
+  } @else {
+  <app-carousel
+    carouselTitle="New Releases"
+    carouselIcon="sparkles"
+    [moviesData]="popularMovies"
+  ></app-carousel>
+  }
 </main>

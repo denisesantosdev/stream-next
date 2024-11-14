@@ -14,14 +14,14 @@
 
 .carousel__item {
   position: relative;
-  width: fit-content;
+  width: min-content;
   margin: auto;
-  margin-bottom: 3rem;
   overflow: hidden;
 }
 
 .carousel__item__image {
   border-radius: 0.5rem;
+  width: 170px;
 }
 
 .carousel__item__icon {
@@ -38,15 +38,30 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: variables.$font-size-sm;
   }
 
   div {
     margin-bottom: 0.5rem;
-  
   }
 
   span {
     opacity: 0.7;
     font-size: variables.$font-size-xs;
+  }
+
+  .carousel__item__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    span {
+      opacity: 0.7;
+      font-size: variables.$font-size-xs;
+      background-color: rgba(255, 255, 255, 0.158);
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
+    }
   }
 }

@@ -1,27 +1,24 @@
 <section class="carousel-wrapper">
   <p-carousel
-    [value]="movies"
+    [value]="moviesData"
     [numVisible]="5"
     [numScroll]="5"
     [responsiveOptions]="responsiveOptions"
-    [circular]="true"
+    [circular]="false"
+    [showIndicators]="false"
     class="carousel"
   >
     <ng-template pTemplate="header">
       <div class="carousel__header">
-        <i class="pi pi-{{carouselIcon}}"></i>
-        <h2>{{ carouselTitle }}</h2>
+        <i class="pi pi-{{ carouselIcon }}"></i>
+        <h2>{{ carouselTitle }}</h2> 
       </div>
     </ng-template>
 
-    <ng-template let-movie pTemplate="item">
+    <ng-template let-movie pTemplate="item" id="{{" movie.id }}>
       <div class="carousel__item">
         <div>
-          <img
-            src="https://dummyimage.com/150x210.jpg"
-            alt=""
-            class="carousel__item__image"
-          />
+          <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
           <p-button
             class="carousel__item__icon"
             [outlined]="true"
@@ -30,10 +27,17 @@
         </div>
         <div class="carousel__item__info">
           <div>
-            <h3 title="{{ movie.title }}">{{ movie.title }}</h3>
-            <span>{{ movie.releaseYear }} | {{ movie.runtime }}min</span>
+            <h3 title="{{ movie.title }}">
+              {{ movie.title }}
+            </h3>
+            <span>{{ movie.releaseDate }} | {{ movie.language }}</span>
           </div>
-          <span>{{ movie.genre }}</span>
+          <!--  <span>{{ movie.genre }}</span>  -->
+          <div class="carousel__item__genres">
+            @for (item of movie.genreNames; track $index) {
+            <span>{{ item }}</span>
+            }
+          </div>
         </div>
       </div>
     </ng-template>
