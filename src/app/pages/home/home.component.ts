@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
+import {SpinnerComponent} from "@components/spinner/spinner.component"
 import { MovieApiService } from '@services/movie-api.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, CarouselComponent],
+  imports: [HeroComponent, CarouselComponent,SpinnerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

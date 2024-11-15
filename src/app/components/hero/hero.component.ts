@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 
@@ -10,7 +10,10 @@ import { TooltipModule } from 'primeng/tooltip';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
-  heroImageUrl: string = 'https://dummyimage.com/500x300.jpg';
+  @Input() heroMovie: any = []
+  heroStyles: string = "";
 
-  heroStyles: string = `background-image:linear-gradient(to top, #121212, #1212129f) , url(${this.heroImageUrl})`;
+  ngOnInit() {
+     this.heroStyles = `background-image:linear-gradient(to top, #121212 40%, transparent) , url(${this.heroMovie.background})`
+  }
 }

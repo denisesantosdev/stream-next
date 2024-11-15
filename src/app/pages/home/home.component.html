@@ -1,9 +1,8 @@
 <main>
-  <app-hero></app-hero>
-
   @if (isLoading) {
-  <p>Loading...</p>
+    <app-spinner/>
   } @else {
+    <app-hero [heroMovie]="popularMovies[0]"></app-hero>
   <app-carousel
     carouselTitle="New Releases"
     carouselIcon="sparkles"

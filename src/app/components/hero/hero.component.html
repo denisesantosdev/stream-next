@@ -2,12 +2,9 @@
   <div class="hero__image" [style]="this.heroStyles"></div>
   <div class="hero__movie">
     <h1>Today's Pick</h1>
-    <h2 class="hero__movie-title">Lorem ipsum dolor sit amet.</h2>
+    <h2 class="hero__movie-title">{{heroMovie.title}}</h2>
     <p class="hero__movie-description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-      repellat quibusdam porro, molestiae provident sint laudantium
-      necessitatibus nulla est atque debitis fuga architecto accusamus
-      reiciendis impedit! Aut ipsa molestias consequuntur!
+      {{heroMovie.description}}
     </p>
     <div class="hero__movie__buttons">
       <p-button label="Watch trailer"/>
