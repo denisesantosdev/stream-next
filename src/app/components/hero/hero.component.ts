@@ -14,7 +14,10 @@ export class HeroComponent {
   @Input() heroMovie: any = [];
   heroStyles: string = '';
 
+  constructor() {}
+
   ngOnInit() {
     this.heroStyles = `background-image:linear-gradient(to top, #121212 40%, transparent) , url(${this.heroMovie.background})`;
+    
   }
 }
