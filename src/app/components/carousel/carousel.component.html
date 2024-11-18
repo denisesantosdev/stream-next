@@ -15,31 +15,33 @@
       </div>
     </ng-template>
 
-    <ng-template let-movie pTemplate="item" id="{{" movie.id }}>
-      <div class="carousel__item">
-        <div>
-          <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
-          <p-button
-            class="carousel__item__icon"
-            [outlined]="true"
-            icon="pi pi-heart"
-          ></p-button>
-        </div>
-        <div class="carousel__item__info">
+    <ng-template let-movie pTemplate="item">
+      <a routerLink="{{movie.id}}">
+        <div class="carousel__item">
           <div>
-            <h3 title="{{ movie.title }}">
-              {{ movie.title }}
-            </h3>
-            <span>{{ movie.releaseDate }} | {{ movie.language }}</span>
+            <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
+            <p-button
+              class="carousel__item__icon"
+              [outlined]="true"
+              icon="pi pi-heart"
+            ></p-button>
           </div>
-          <!--  <span>{{ movie.genre }}</span>  -->
-          <div class="carousel__item__genres">
-            @for (item of movie.genreNames; track $index) {
-            <span>{{ item }}</span>
-            }
+          <div class="carousel__item__info">
+            <div>
+              <h3 title="{{ movie.title }}">
+                {{ movie.title }}
+              </h3>
+              <span>{{ movie.releaseDate }} | {{ movie.language }}</span>
+            </div>
+            <!--  <span>{{ movie.genre }}</span>  -->
+            <div class="carousel__item__genres">
+              @for (item of movie.genreNames; track $index) {
+              <span>{{ item }}</span>
+              }
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </ng-template>
   </p-carousel>
 </section>

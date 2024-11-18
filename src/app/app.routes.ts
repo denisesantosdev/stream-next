@@ -15,6 +15,6 @@ export const routes: Routes = [
   { path: 'auth', component: AuthPageComponent, title: 'Login' },
   { path: 'search', component: SearchResultsPageComponent, title: 'Search' },
   { path: 'user', component: UserPageComponent, title: 'Your recommendations' },
-  { path: 'movie', component: MovieDetailsComponent, title: 'Movie details' },
+  { path: ':id', component: MovieDetailsComponent, title: 'Movie details' },
   { path: '**', component: NotFoundComponent },
 ];

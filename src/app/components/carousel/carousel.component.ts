@@ -3,11 +3,12 @@ import { CarouselModule } from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { MovieApiService } from '@services/movie-api.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CarouselModule, CardModule, ButtonModule],
+  imports: [CarouselModule, CardModule, ButtonModule,RouterLink],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
