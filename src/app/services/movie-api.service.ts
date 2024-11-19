@@ -9,6 +9,9 @@ export class MovieApiService {
   private baseUrl = 'https://api.themoviedb.org/3/';
   READ_ACESS_TOKEN: string =
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YmNkZTUxNjFmNjA3OTU2NzI3OWJiOWM2NmRiMGEyMyIsIm5iZiI6MTcyNTQwNDQ2OC4xODAzMjMsInN1YiI6IjY2ZDc3ZjhiODRkYWFjZWJmMTE4MDFjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DshumDvzlF6HEoCT20uMaIhe9h3TzHVWX6_mWhBlQSg';
+  private headers = new HttpHeaders({
+    Authorization: `Bearer ${this.READ_ACESS_TOKEN}`,
+  });
 
   constructor(private http: HttpClient) {}
 
@@ -26,6 +29,36 @@ export class MovieApiService {
     });
 
     return this.http.get(`${this.baseUrl}genre/movie/list`, { headers });
+  }
+
+  getMovieDetails(movieId: any) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.READ_ACESS_TOKEN}`,
+    });
+
+    return this.http.get(
+      `${this.baseUrl}movie/${movieId}?&append_to_response=videos,images`,
+      { headers }
+    );
+  }
+
+  shapeMovieDetails(movieData: any) {
+    return {
+      title: movieData.title,
+      background: `https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`,
+      poster: `https://image.tmdb.org/t/p/w200/${movieData.poster_path}`,
+      genres: movieData.genres,
+      imdbUrl: `http://imdb.com/title/${movieData.imdb_id}`,
+      language: movieData.original_language,
+      description: movieData.overview,
+      releaseDate: movieData.release_date,
+      popularity: movieData.popularity,
+      runtime: movieData.runtime,
+      status: movieData.status,
+      trailer: movieData.videos.results.filter((item:any)=>{
+        return item.type === "Trailer"
+      })
+    };
   }
 
   shapeData(data: any) {

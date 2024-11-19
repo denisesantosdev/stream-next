@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from 'express';
+import { MovieApiService } from '@services/movie-api.service';
+import { response, Router } from 'express';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,12 +12,17 @@ import { Router } from 'express';
 })
 export class MovieDetailsComponent {
   movieId: string = ''
+  movieDetails: any 
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private service: MovieApiService) {}
 
   ngOnInit() {
     this.movieId = this.route.snapshot.params['id']
 
-    console.log(this.movieId);
+    this.service.getMovieDetails(this.movieId).subscribe(response=>{
+      //console.log(response);
+      this.movieDetails = this.service.shapeMovieDetails(response)
+      console.log(this.movieDetails);
+    })
   }
 }
