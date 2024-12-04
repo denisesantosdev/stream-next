@@ -1,0 +1,26 @@
+.movie-details {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.movie-details__info {
+    display: grid;
+    gap: 1rem;
+
+    span {
+        opacity: 0.5; 
+        margin-right: .5rem;
+    }
+    
+    i {
+        margin-right: .5rem;
+    }
+}
+
+.movie-details__genres {
+    display: flex;
+    gap: 2rem;
+}

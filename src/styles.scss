@@ -16,3 +16,17 @@ ul {
 img {
   display: block;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #82f369 0%, #91cfff 40%, #ffaacc 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}

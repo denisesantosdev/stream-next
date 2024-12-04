@@ -11,7 +11,7 @@
     <ng-template pTemplate="header">
       <div class="carousel__header">
         <i class="pi pi-{{ carouselIcon }}"></i>
-        <h2>{{ carouselTitle }}</h2> 
+        <h2 class="text-gradient">{{ carouselTitle }}</h2> 
       </div>
     </ng-template>
 
@@ -20,20 +20,18 @@
         <div class="carousel__item">
           <div>
             <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
-            <p-button
+            <!-- <p-button
               class="carousel__item__icon"
               [outlined]="true"
               icon="pi pi-heart"
-            ></p-button>
+            ></p-button> -->
           </div>
           <div class="carousel__item__info">
             <div>
               <h3 title="{{ movie.title }}">
                 {{ movie.title }}
               </h3>
-              <span>{{ movie.releaseDate }} | {{ movie.language }}</span>
             </div>
-            <!--  <span>{{ movie.genre }}</span>  -->
             <div class="carousel__item__genres">
               @for (item of movie.genreNames; track $index) {
               <span>{{ item }}</span>

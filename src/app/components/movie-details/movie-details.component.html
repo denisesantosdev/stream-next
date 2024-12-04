@@ -1,0 +1,42 @@
+<div class="movie-details">
+  <ul class="movie-details__info">
+    <li>
+      <span><i class="pi pi-language"></i> Language:</span>
+      {{ movieDetails.language }}
+    </li>
+    <li>
+      <span><i class="pi pi-map-marker"></i> Country:</span>
+      {{ movieDetails.country }}
+    </li>
+    <li>
+      <span><i class="pi pi-calendar"></i> Release Date:</span>
+      {{ movieDetails.releaseDate }}
+    </li>
+    <li>
+      <span><i class="pi pi-hourglass"></i> Runtime:</span>
+      {{ movieDetails.runtime }}min
+    </li>
+    <li>
+      <span><i class="pi pi-chart-line"></i> Popularity:</span>
+      {{ movieDetails.popularity }}
+    </li>
+    <li>
+      <span><i class="pi pi-star-fill"></i> Rating:</span>
+      {{
+        movieDetails.averageRating === 0
+          ? "Not Rated Yet"
+          : movieDetails.averageRating
+      }}
+    </li>
+    <li>
+      <span><i class="pi pi-check"></i> Status:</span>
+      {{ movieDetails.status }}
+    </li>
+  </ul>
+
+  <ul class="movie-details__genres">
+    @for (item of movieDetails.genres; track $index) {
+    <p-tag value="{{ item.name }}"></p-tag>
+    }
+  </ul>
+</div>

@@ -1,19 +1,20 @@
 <section class="hero">
-  <div class="hero__image" [style]="this.heroStyles"></div>
   <div class="hero__movie">
-    <h1>Today's Pick</h1>
-    <a routerLink={{heroMovie.id}}>
-      <h2 class="hero__movie-title">{{heroMovie.title}}</h2>
+    <h1>{{heroText}}</h1>
+    <a routerLink="{{ heroMovie.id }}">
+      <h2 class="hero__movie-title">{{ heroMovie.title }}</h2>
     </a>
     <p class="hero__movie-description">
-      {{heroMovie.description}}
+      {{ heroMovie.description }}
     </p>
     <div class="hero__movie__buttons">
-      <p-button label="Watch trailer"/>
+      <p-button label="Watch trailer" />
+      <!-- 
       <p-button icon="pi pi-heart" severity="secondary" [outlined]="true"/>
-      <!-- <p-button icon="pi pi-heart-fill" /> -->
+       <p-button icon="pi pi-heart-fill" /> 
       <p-button icon="pi pi-plus" severity="secondary" [outlined]="true"/>
-      <!-- <p-button icon="pi pi-check" /> -->
+       <p-button icon="pi pi-check" />  -->
     </div>
   </div>
+  <div class="background-image" [style]="background"></div>
 </section>

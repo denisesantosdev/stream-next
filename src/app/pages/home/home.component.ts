@@ -16,13 +16,16 @@ export class HomeComponent implements OnInit {
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YmNkZTUxNjFmNjA3OTU2NzI3OWJiOWM2NmRiMGEyMyIsIm5iZiI6MTcyNTQwNDQ2OC4xODAzMjMsInN1YiI6IjY2ZDc3ZjhiODRkYWFjZWJmMTE4MDFjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DshumDvzlF6HEoCT20uMaIhe9h3TzHVWX6_mWhBlQSg';
 
   popularMovies: any;
+  nowPlaying: any
+  upcoming: any
+  topRated: any
   genreList: any;
   isLoading: boolean = true;
 
   constructor(private movieApiService: MovieApiService) {}
 
   ngOnInit() {
-    this.movieApiService.getMovieList("now_playing").subscribe(
+    this.movieApiService.getMovieList("popular").subscribe(
       (response) => {
         this.popularMovies = this.movieApiService.shapeData(response);
         this.isLoading = false;
@@ -31,5 +34,30 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.movieApiService.getMovieList("now_playing").subscribe(
+    (response)=>{
+      this.nowPlaying = this.movieApiService.shapeData(response)
+      //console.log(this.nowPlaying);
+    }
+    )
+
+    this.movieApiService.getMovieList("upcoming").subscribe(
+    (response)=>{
+      this.upcoming = this.movieApiService.shapeData(response)
+      //console.log(this.upcoming);
+    }
+    )
+
+    this.movieApiService.getMovieList("top_rated").subscribe(
+    (response)=>{
+      this.topRated = this.movieApiService.shapeData(response)
+      //console.log(this.topRated);
+    }
+    )
+
+    this.movieApiService.getTrendingMovies().subscribe(response=>{
+      console.log(response);
+    })
   }
 }

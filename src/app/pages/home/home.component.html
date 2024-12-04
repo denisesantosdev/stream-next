@@ -2,11 +2,21 @@
   @if (isLoading) {
     <app-spinner/>
   } @else {
-    <app-hero [heroMovie]="popularMovies[0]"></app-hero>
+    <app-hero [heroMovie]="popularMovies[0]" heroText="Today's Pick"></app-hero>
   <app-carousel
     carouselTitle="New Releases"
     carouselIcon="sparkles"
+    [moviesData]="upcoming"
+  ></app-carousel>
+  <app-carousel
+    carouselTitle="Popular Movies"
+    carouselIcon="sparkles"
     [moviesData]="popularMovies"
+  ></app-carousel>
+  <app-carousel
+    carouselTitle="Discover"
+    carouselIcon="sparkles"
+    [moviesData]="topRated"
   ></app-carousel>
   }
 </main>

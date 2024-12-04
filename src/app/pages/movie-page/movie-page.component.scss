@@ -1,0 +1,61 @@
+@use "../../styles/variables.scss";
+
+.movie {
+    margin: auto;
+    max-width: variables.$breakpoint-lg;
+    display: flex;
+    gap: 2rem;
+}
+
+.movie__poster {
+    display: grid;
+    gap: 1rem;
+
+    img {
+        border-radius: 10px;
+    }
+
+    .movie__btns {
+        display: grid;
+        gap: .5rem;
+
+        i {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.movie__details {
+    width: 100%;
+
+    h2 {
+        margin: 0;
+        margin-bottom: 2rem;
+        padding-left: 1rem;
+    }
+
+}
+
+.movie__details__tab {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+
+    div {
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        opacity: .7;
+    }
+
+    li:last-child {
+        margin-left: auto;
+        margin-right: 1rem;
+        color: yellow;
+        font-size: 2.5rem;
+        opacity: .7;
+    }
+}
+
+.active-tab {
+    color: red;
+}

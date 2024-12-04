@@ -9,5 +9,4 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   styleUrl: './spinner.component.scss'
 })
 export class SpinnerComponent {
-
 }
