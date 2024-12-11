@@ -13,57 +13,45 @@
     <nav class="header__nav">
       <div class="header__menuBtn">
         @if (isMenuOpen) {
-        <p-button icon="pi pi-times" [rounded]="true" (onClick)="toggleMenu()" />
+        <p-button
+          icon="pi pi-times"
+          [rounded]="true"
+          (onClick)="toggleMenu()"
+        />
         } @else {
         <p-button icon="pi pi-bars" [rounded]="true" (onClick)="toggleMenu()" />
         }
       </div>
-      <ul class="header__nav-list" [class.header__nav-list--isExpanded]="isMenuOpen">
-        <li class="header__nav-item">
-          <p-button
-            routerLink="auth"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            severity="secondary"
-            [outlined]="true"
-            size="small"
-            >Sign In</p-button
-          >
-        </li>
-        <li>
-          <p-button
-            routerLink="auth"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            size="small"
-            >Create Account</p-button
-          >
-        </li>
-        <!-- <li>
-            <a
-              routerLink="search"
+
+      <div
+        class="header__nav-list"
+        [class.header__nav-list--isExpanded]="isMenuOpen"
+      >
+        <ul>
+          <li class="header__nav-item">
+            <p-button
+              routerLink="auth"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
-              >Search Results</a
+              severity="secondary"
+              [outlined]="true"
+              size="small"
+              >Sign In</p-button
             >
           </li>
           <li>
-            <a
-              routerLink="user"
+            <p-button
+              routerLink="auth"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
-              >User Page</a
+              size="small"
+              >Create Account</p-button
             >
           </li>
-          <li>
-            <a
-              routerLink="movie"
-              routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              >Movie Details</a
-            >
-          </li> -->
-      </ul>
+        </ul>
+
+        <app-social-links></app-social-links>
+      </div>
     </nav>
   </div>
 </header>

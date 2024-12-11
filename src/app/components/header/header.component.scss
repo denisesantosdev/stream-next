@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .header {
   max-width: 1200px;
   margin: auto;
@@ -13,7 +15,7 @@
 }
 
 .header__menuBtn {
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     display: none;
   }
 }
@@ -22,12 +24,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   display: none;
-
-  @media (min-width: 700px) {
+  
+  @media (min-width: 768px) {
     flex-direction: row;
     display: flex;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      display: flex;
+    }
   }
 }
 
