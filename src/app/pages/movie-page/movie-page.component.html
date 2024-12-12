@@ -1,66 +1,68 @@
 @if(movieDetails) {
-<app-hero [heroMovie]="movieDetails"></app-hero>
-<main class="movie">
-  <section class="movie__poster">
-    <img src="{{ movieDetails.poster }}" alt="" />
-    <div class="movie__btns">
-      <a
-        href="{{ movieDetails.imdbUrl }}"
-        target="_blank"
-        pButton
-        [severity]="'primary'"
-      >
-        <i class="pi pi-external-link"></i>
-        IMDB
-      </a>
-      <a
-      href="https://angular.dev/"
-      target="_blank"
-      pButton
-      [severity]="'secondary'"
-      >
-      <i class="pi pi-external-link"></i>
-      Watch providers
-    </a>
-    <a
-        href="{{ movieDetails.homepage}}"
+<div class="movie-page-wrapper">
+  <app-hero [heroMovie]="movieDetails"></app-hero>
+  <main class="movie">
+    <section class="movie__poster">
+      <img src="{{ movieDetails.poster }}" alt="" />
+      <div class="movie__btns">
+        <a
+          href="{{ movieDetails.imdbUrl }}"
+          target="_blank"
+          pButton
+          [severity]="'primary'"
+        >
+          <i class="pi pi-external-link"></i>
+          IMDB
+        </a>
+        <a
+        href="https://angular.dev/"
         target="_blank"
         pButton
         [severity]="'secondary'"
-      >
-      <i class="pi pi-external-link"></i>
-      HomePage
-    </a>
-  </div>
-</section>
-
-  <nav class="movie__details">
-    <h2>{{ movieDetails.tagline }}</h2>
-    <ul class="movie__details__tab">
-      <li>
-        <a routerLink="details" routerLinkActive="active-tab"
-          ><div pRipple>Details</div></a
         >
-      </li>
-      <li>
-        <a routerLink="cast" routerLinkActive="active-tab"
-          ><div pRipple>Cast</div></a
+        <i class="pi pi-external-link"></i>
+        Watch providers
+      </a>
+      <a
+          href="{{ movieDetails.homepage}}"
+          target="_blank"
+          pButton
+          [severity]="'secondary'"
         >
-      </li>
-      <li>
-        <a routerLink="videos" routerLinkActive="active-tab"
-          ><div pRipple>Videos</div></a
-        >
-      </li>
-      <li>
-        <i class="pi pi-star-fill"></i>
-        {{ movieDetails.averageRating }}
-      </li>
-    </ul>
-    <p-divider></p-divider>
-    <router-outlet></router-outlet>
-  </nav>
-</main>
+        <i class="pi pi-external-link"></i>
+        HomePage
+      </a>
+    </div>
+  </section>
+  
+    <nav class="movie__details">
+      <h2>{{ movieDetails.tagline }}</h2>
+      <ul class="movie__details__tab">
+        <li>
+          <a routerLink="details" routerLinkActive="active-tab"
+            ><div pRipple>Details</div></a
+          >
+        </li>
+        <li>
+          <a routerLink="cast" routerLinkActive="active-tab"
+            ><div pRipple>Cast</div></a
+          >
+        </li>
+        <li>
+          <a routerLink="videos" routerLinkActive="active-tab"
+            ><div pRipple>Videos</div></a
+          >
+        </li>
+        <li>
+          <i class="pi pi-star-fill"></i>
+          {{ movieDetails.averageRating }}
+        </li>
+      </ul>
+      <p-divider></p-divider>
+      <router-outlet></router-outlet>
+    </nav>
+  </main>
+</div>
 
 } @else {
 <app-spinner></app-spinner>

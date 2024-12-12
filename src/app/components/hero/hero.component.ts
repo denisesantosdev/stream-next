@@ -18,6 +18,6 @@ export class HeroComponent {
   constructor() {}
 
   ngOnInit() {
-    this.background = `background-image:linear-gradient(to top, #121212 40%, transparent) , url(${this.heroMovie.background})`;
+    this.background = `background-image: linear-gradient(to top, #121212 30%, #12121290, transparent, #121212) , url(${this.heroMovie.background})`;
   }
 }

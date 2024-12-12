@@ -1,8 +1,13 @@
 @use "../../styles/variables.scss";
 
-.movie {
+.movie-page-wrapper {
+    display: grid;
+    gap: 9rem;
     margin: auto;
     max-width: variables.$breakpoint-lg;
+}
+
+.movie {
     display: flex;
     gap: 2rem;
 }

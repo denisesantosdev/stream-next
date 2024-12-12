@@ -9,6 +9,10 @@
 
   <div class="header__nav-wrapper">
     <!-- <p-inputSwitch class="header__InputSwitch" /> -->
+    <div>
+      <input type="text" />
+      <p-button><i class="pi pi-search"></i></p-button>
+    </div>
 
     <nav class="header__nav">
       <div class="header__menuBtn">
@@ -27,7 +31,7 @@
         class="header__nav-list"
         [class.header__nav-list--isExpanded]="isMenuOpen"
       >
-        <ul>
+        <!-- <ul>
           <li class="header__nav-item">
             <p-button
               routerLink="auth"
@@ -48,7 +52,7 @@
               >Create Account</p-button
             >
           </li>
-        </ul>
+        </ul> -->
 
         <app-social-links></app-social-links>
       </div>
