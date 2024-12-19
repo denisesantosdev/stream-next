@@ -69,6 +69,16 @@ export class MovieApiService {
     });
   }
 
+  searchMovies(query:string) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.READ_ACESS_TOKEN}`,
+    });
+
+    return this.http.get(`${this.baseUrl}search/movie?query=${query}`, {
+      headers,
+    });
+  }
+
   shapeMovieDetails(movieData: any) {
     return {
       title: movieData.title,

@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(private movieApiService: MovieApiService) {}
 
   ngOnInit() {
-     this.movieApiService.getMovieList("popular").subscribe(
+    /*  this.movieApiService.getMovieList("popular").subscribe(
       (response) => {
         this.popularMovies = this.movieApiService.shapeData(response);
         this.isLoading = false;
@@ -47,6 +47,6 @@ export class HomeComponent implements OnInit {
       this.topRated = this.movieApiService.shapeData(response)
       //console.log(this.topRated);
     }
-    )
-  } 
+    )*/
+  }  
 }

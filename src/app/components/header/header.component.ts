@@ -3,6 +3,7 @@ import { ButtonModule } from 'primeng/button';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SocialLinksComponent } from "../social-links/social-links.component";
+import { SearchComponent } from "../search/search.component";
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ import { SocialLinksComponent } from "../social-links/social-links.component";
     RouterLinkActive,
     HeaderComponent,
     InputSwitchModule,
-    SocialLinksComponent
+    SocialLinksComponent,
+    SearchComponent
 ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

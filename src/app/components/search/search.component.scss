@@ -1,0 +1,25 @@
+.search-wrapper {
+}
+
+.search-box {
+    background-color: var(--primary-900);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 4rem 1rem 1rem 1rem;
+    display: none;
+    /* z-index: -1; */
+}
+
+.toggle {
+    display: block;
+}
+
+:host ::ng-deep .p-autocomplete {
+    width: 100%;
+}
+
+:host ::ng-deep .p-autocomplete input  {
+    width: 100%;
+}
