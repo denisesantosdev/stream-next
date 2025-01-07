@@ -1,29 +1,16 @@
-<div class="search-wrapper">
-  <div class="search-btns">
-    @if(isSearchBoxOpen){
-    <p-button
-      icon="pi pi-times"
-      [rounded]="true"
-      [outlined]="true"
-      (onClick)="toggleSearchBox()"
-    />
-    } @else {
-    <p-button
-      icon="pi pi-search"
-      [rounded]="true"
-      [outlined]="true"
-      (onClick)="toggleSearchBox()"
-    />
-    }
-  </div>
+<p-button (onClick)="toggleSearchBox()" icon="pi pi-search" />
 
-  <div class="search-box" [class.toggle]="isSearchBoxOpen">
-    <p-autoComplete
-      [(ngModel)]="selectedItem"
-      [suggestions]="suggestions"
-      (completeMethod)="search($event)"
-      (onSelect)="onSelect($event)"
-      optionLabel="title"
-    />
-  </div>
-</div>
+<p-dialog
+  header="Search Movies"
+  [modal]="true"
+  [(visible)]="isSearchBoxOpen"
+  [style]="{ width: '90vw', height: '60vh', maxWidth: '700px' }"
+  ><p-autoComplete
+  [(ngModel)]="selectedItem"
+  [suggestions]="suggestions"
+  (completeMethod)="search($event)"
+  (onSelect)="onSelect($event)"
+  optionLabel="title"
+  placeholder="Interstellar"
+/></p-dialog
+>

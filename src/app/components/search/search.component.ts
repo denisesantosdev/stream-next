@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { MovieApiService } from '@services/movie-api.service';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [AutoCompleteModule,ButtonModule],
+  imports: [AutoCompleteModule,ButtonModule,OverlayPanelModule,DialogModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -15,7 +17,7 @@ import { ButtonModule } from 'primeng/button';
 export class SearchComponent {
   selectedItem: any;
   suggestions: any | undefined;
-  isSearchBoxOpen?: boolean
+  isSearchBoxOpen: boolean = false
 
   constructor(private movieApiService: MovieApiService, private router: Router) {}
 
@@ -42,7 +44,6 @@ export class SearchComponent {
 
   onSelect(event:any) {
     this.selectedItem = event.value.id
-    /* this.router.navigate(['/', this.selectedItem]) */
     window.history.pushState({}, '',`/${this.selectedItem}`);
     window.location.reload();
     this.isSearchBoxOpen = false
