@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   
     @media (min-width: variables.$breakpoint-xs) {
       flex-direction: row;
