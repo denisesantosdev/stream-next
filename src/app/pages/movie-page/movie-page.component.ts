@@ -15,6 +15,8 @@ import { MovieVideosComponent } from '../../components/movie-videos/movie-videos
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
+import { TagModule } from 'primeng/tag';
+import { CarouselComponent } from "../../components/carousel/carousel.component";
 
 @Component({
   selector: 'app-movie-details',
@@ -30,8 +32,10 @@ import { DividerModule } from 'primeng/divider';
     ButtonModule,
     RouterLinkActive,
     RippleModule,
-    DividerModule
-  ],
+    DividerModule,
+    TagModule,
+    CarouselComponent
+],
   templateUrl: './movie-page.component.html',
   styleUrl: './movie-page.component.scss',
 })
@@ -52,7 +56,7 @@ export class MoviePageComponent {
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
       //console.log(response);
       this.movieDetails = this.service.shapeMovieDetails(response);
-      //console.log(this.movieDetails);
+      console.log(this.movieDetails);
     });
 
    /*  this.service.getSimilarMovie(this.movieId).subscribe((response) => {

@@ -11,8 +11,8 @@ import { TagModule } from 'primeng/tag';
   styleUrl: './movie-details.component.scss',
 })
 export class MovieDetailsComponent {
-  movieId: string = '';
-  movieDetails: any | undefined;
+ /*  movieId: string = '';
+  @Input() movieDetails: any | undefined; */
 
   constructor(
     private route: ActivatedRoute,
@@ -20,12 +20,12 @@ export class MovieDetailsComponent {
   ) {}
 
   ngOnInit() {
-    this.movieId = this.route.snapshot.params['id'];
+    /* this.movieId = this.route.snapshot.params['id'];
 
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
       console.log(response);
       this.movieDetails = this.service.shapeMovieDetails(response);
       console.log(this.movieDetails);
-    });
-  }
+    });*/
+  } 
 }

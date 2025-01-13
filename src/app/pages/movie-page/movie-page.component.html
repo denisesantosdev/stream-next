@@ -1,7 +1,102 @@
 @if(movieDetails) {
 <div class="movie-page-wrapper">
   <app-hero [heroMovie]="movieDetails"></app-hero>
+
   <main class="movie">
+    <section class="movie__poster">
+      <img src="{{ movieDetails.poster }}" alt="" />
+      <div class="movie__btns">
+        <a
+          href="{{ movieDetails.imdbUrl }}"
+          target="_blank"
+          pButton
+          class="movie__btn-link"
+        >
+          <i class="pi pi-external-link"></i>
+          <p>IMDB</p>
+        </a>
+        <a
+          href="{{ movieDetails.homepage }}"
+          pButton
+          outlined="true"
+          severity="secondary"
+          class="movie__btn-link"
+        >
+          <i class="pi pi-external-link"></i>
+          <p>Streaming on</p>
+        </a>
+        <a
+          href="{{ movieDetails.homepage }}"
+          pButton
+          outlined="true"
+          target="_blank"
+          class="movie__btn-link"
+          severity="secondary"
+        >
+          <i class="pi pi-external-link"></i>
+          <p>Website</p>
+        </a>
+      </div>
+    </section>
+    <div class="movie__details-wrapper">
+      <p-tabView>
+        <p-tabPanel header="Details">
+          <div class="movie-details">
+            <ul class="movie-details__info">
+              <li>
+                <span><i class="pi pi-language"></i> Language:</span>
+                {{ movieDetails.language }}
+              </li>
+              <li>
+                <span><i class="pi pi-map-marker"></i> Country:</span>
+                {{ movieDetails.country }}
+              </li>
+              <li>
+                <span><i class="pi pi-calendar"></i> Release Date:</span>
+                {{ movieDetails.releaseDate }}
+              </li>
+              <li>
+                <span><i class="pi pi-hourglass"></i> Runtime:</span>
+                {{ movieDetails.runtime }}min
+              </li>
+              <li>
+                <span><i class="pi pi-chart-line"></i> Popularity:</span>
+                {{ movieDetails.popularity }}
+              </li>
+              <li>
+                <span><i class="pi pi-star-fill"></i> Rating:</span>
+                {{
+                  movieDetails.averageRating === 0
+                    ? "Not Rated Yet"
+                    : movieDetails.averageRating
+                }}
+              </li>
+              <li>
+                <span><i class="pi pi-check"></i> Status:</span>
+                {{ movieDetails.status }}
+              </li>
+            </ul>
+
+            <ul class="movie-details__genres">
+              @for (item of movieDetails.genres; track $index) {
+              <p-tag value="{{ item.name }}"></p-tag>
+              }
+            </ul>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Cast">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium...
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="Videos">
+          
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </main>
+  <!-- <main class="movie">
     <section class="movie__poster">
       <img src="{{ movieDetails.poster }}" alt="" />
       <div class="movie__btns">
@@ -61,7 +156,7 @@
       <p-divider></p-divider>
       <router-outlet></router-outlet>
     </nav>
-  </main>
+  </main> -->
 </div>
 
 } @else {

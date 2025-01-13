@@ -83,7 +83,7 @@ export class MovieApiService {
     return {
       title: movieData.title,
       background: `https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`,
-      poster: `https://image.tmdb.org/t/p/w200/${movieData.poster_path}`,
+      poster: `https://image.tmdb.org/t/p/w300/${movieData.poster_path}`,
       genres: movieData.genres,
       imdbUrl: `http://imdb.com/title/${movieData.imdb_id}`,
       language: movieData.original_language,
