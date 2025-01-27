@@ -85,17 +85,52 @@
           </div>
         </p-tabPanel>
         <p-tabPanel header="Cast">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium...
-          </p>
+          <ul>
+            @for (item of movieDetails.cast; track $index) {
+            <li>
+              <img src="{{ item.profileImg }}" alt="" />
+              <div>
+                <p>{{ item.name }}</p>
+                <p>{{ item.character }}</p>
+              </div>
+            </li>
+            }
+          </ul>
         </p-tabPanel>
         <p-tabPanel header="Videos">
-          
+          @for (item of movieDetails.videos; track $index) {
+          <!-- <div>
+              <iframe
+                width="560"
+                height="315"
+                [src]="item.url | safe : 'resourceUrl'"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div> -->
+          }
         </p-tabPanel>
       </p-tabView>
     </div>
   </main>
+
+  <div id="trailer">
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        [src]="movieDetails.videos[0].url | safe : 'resourceUrl'"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div> 
+  </div>
+
+  <app-carousel
+    carouselTitle="Discover"
+    carouselIcon="star"
+    [moviesData]="similarMovies"
+  ></app-carousel>
   <!-- <main class="movie">
     <section class="movie__poster">
       <img src="{{ movieDetails.poster }}" alt="" />

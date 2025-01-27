@@ -22,7 +22,7 @@ export const routes: Routes = [
     path: ':id',
     component: MoviePageComponent,
     title: 'Movie',
-    children: [
+    /* children: [
       {
         path: '',
         component: MovieDetailsComponent,
@@ -40,7 +40,7 @@ export const routes: Routes = [
         path: 'details',
         redirectTo: '',
       },
-    ],
+    ], */
   },
   { path: '**', component: NotFoundComponent },
 ];

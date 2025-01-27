@@ -69,7 +69,7 @@ export class MovieApiService {
     });
   }
 
-  searchMovies(query:string) {
+  searchMovies(query: string) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.READ_ACESS_TOKEN}`,
     });
@@ -96,9 +96,16 @@ export class MovieApiService {
       averageRating: movieData.vote_average,
       homepage: movieData.homepage,
       tagline: movieData.tagline,
-      trailer: movieData.videos.results.filter((item: any) => {
-        return item.type === 'Trailer';
+      videos: movieData.videos.results.map((item: any) => {
+        return {...item, url: `https://www.youtube.com/embed/${item.key}`};
       }),
+      cast: movieData.credits.cast.map((item: any) => {
+        return {
+          name: item.name,
+          character: item.character,
+          profileImg: `https://image.tmdb.org/t/p/w300${item.profile_path}`,
+        };
+      })
     };
   }
 

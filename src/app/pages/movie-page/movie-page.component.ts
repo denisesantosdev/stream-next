@@ -17,11 +17,13 @@ import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
 import { CarouselComponent } from "../../components/carousel/carousel.component";
+import {SafePipe} from "safe-pipe"
 
 @Component({
   selector: 'app-movie-details',
   standalone: true,
   imports: [
+    SafePipe,
     HeroComponent,
     SpinnerComponent,
     RouterOutlet,
@@ -43,6 +45,7 @@ export class MoviePageComponent {
   movieId: string = '';
   movieDetails: any | undefined;
   link: any;
+  similarMovies: any | undefined
 
   constructor(
     private route: ActivatedRoute,
@@ -52,19 +55,20 @@ export class MoviePageComponent {
   ngOnInit() {
     this.movieId = this.route.snapshot.params['id'];
     this.link = `${this.movieId}`;
-
+    
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
       //console.log(response);
       this.movieDetails = this.service.shapeMovieDetails(response);
-      console.log(this.movieDetails);
+      //console.log(this.movieDetails);
     });
 
-   /*  this.service.getSimilarMovie(this.movieId).subscribe((response) => {
-      //console.log(response);
+     this.service.getSimilarMovie(this.movieId).subscribe((response: any) => {
+      console.log(response.results);
+      this.similarMovies = this.service.shapeData(response.results)
     });
 
-    this.service.getWatchProviders(this.movieId).subscribe((response) => {
+   /*  this.service.getWatchProviders(this.movieId).subscribe((response) => {
       //console.log(response);
-    }); */
+    });  */
   }
 }

@@ -16,7 +16,7 @@ export class CarouselComponent {
   responsiveOptions: any[] | undefined;
   @Input() carouselTitle: string | undefined;
   @Input() carouselIcon: string | undefined;
-  @Input() moviesData: any;
+  @Input() moviesData: any | undefined;
   genreList: any;
   READ_ACESS_TOKEN: string =
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YmNkZTUxNjFmNjA3OTU2NzI3OWJiOWM2NmRiMGEyMyIsIm5iZiI6MTcyNTQwNDQ2OC4xODAzMjMsInN1YiI6IjY2ZDc3ZjhiODRkYWFjZWJmMTE4MDFjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DshumDvzlF6HEoCT20uMaIhe9h3TzHVWX6_mWhBlQSg';
