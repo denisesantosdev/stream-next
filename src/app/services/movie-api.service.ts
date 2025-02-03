@@ -97,20 +97,27 @@ export class MovieApiService {
       homepage: movieData.homepage,
       tagline: movieData.tagline,
       videos: movieData.videos.results.map((item: any) => {
-        return {...item, url: `https://www.youtube.com/embed/${item.key}`};
+        return { ...item, url: `https://www.youtube.com/embed/${item.key}` };
       }),
+      trailer: movieData.videos.results
+        .filter((item: any) => {
+          return item.type === 'Trailer';
+        })
+        .map((item: any) => {
+          return { ...item, url: `https://www.youtube.com/embed/${item.key}` };
+        }),
       cast: movieData.credits.cast.map((item: any) => {
         return {
           name: item.name,
           character: item.character,
           profileImg: `https://image.tmdb.org/t/p/w300${item.profile_path}`,
         };
-      })
+      }),
     };
   }
 
   shapeData(data: any) {
-    return data.results.map((item: any) => {
+    return data.results?.map((item: any) => {
       return {
         title: item.title,
         language: item.original_language,

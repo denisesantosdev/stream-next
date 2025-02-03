@@ -46,6 +46,7 @@ export class MoviePageComponent {
   movieDetails: any | undefined;
   link: any;
   similarMovies: any | undefined
+  watchProvidersLink: any
 
   constructor(
     private route: ActivatedRoute,
@@ -57,18 +58,16 @@ export class MoviePageComponent {
     this.link = `${this.movieId}`;
     
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
-      //console.log(response);
       this.movieDetails = this.service.shapeMovieDetails(response);
-      //console.log(this.movieDetails);
+      console.log(this.movieDetails);
     });
 
      this.service.getSimilarMovie(this.movieId).subscribe((response: any) => {
-      console.log(response.results);
-      this.similarMovies = this.service.shapeData(response.results)
+       this.similarMovies = this.service.shapeData(response)
     });
 
-   /*  this.service.getWatchProviders(this.movieId).subscribe((response) => {
-      //console.log(response);
-    });  */
+    this.service.getWatchProviders(this.movieId).subscribe((response: any) => {
+      this.watchProvidersLink = response.results['BR']?.link 
+    });
   }
 }

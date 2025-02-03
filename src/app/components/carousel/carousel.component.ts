@@ -4,11 +4,12 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { MovieApiService } from '@services/movie-api.service';
 import { RouterLink } from '@angular/router';
+import { SpinnerComponent } from "../spinner/spinner.component";
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CarouselModule, CardModule, ButtonModule,RouterLink],
+  imports: [CarouselModule, CardModule, ButtonModule, RouterLink, SpinnerComponent],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
@@ -51,7 +52,7 @@ export class CarouselComponent {
       (response) => {
         this.genreList = response;
 
-        this.moviesData = this.moviesData.map((item: any) => {
+        this.moviesData = this.moviesData?.map((item: any) => {
           return {
             ...item,
             genreNames: item.genreIds.map((item: any) => {

@@ -1,45 +1,51 @@
-<section class="carousel-wrapper">
-  <p-carousel
-    [value]="moviesData"
-    [numVisible]="5"
-    [numScroll]="5"
-    [responsiveOptions]="responsiveOptions"
-    [circular]="false"
-    [showIndicators]="false"
-    class="carousel"
-  >
-    <ng-template pTemplate="header">
-      <div class="carousel__header">
-        <i class="pi pi-{{ carouselIcon }}"></i>
-        <h2>{{ carouselTitle }}</h2> 
-      </div>
-    </ng-template>
 
-    <ng-template let-movie pTemplate="item">
-      <a routerLink="{{movie.id}}">
-        <div class="carousel__item">
-          <div>
-            <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
-            <!-- <p-button
-              class="carousel__item__icon"
-              [outlined]="true"
-              icon="pi pi-heart"
-            ></p-button> -->
-          </div>
-          <div class="carousel__item__info">
-            <div>
-              <h3 title="{{ movie.title }}">
-                {{ movie.title }}
-              </h3>
-            </div>
-            <div class="carousel__item__genres">
-              @for (item of movie.genreNames; track $index) {
-              <span>{{ item }}</span>
-              }
-            </div>
-          </div>
+@if(moviesData && genreList) {
+  <section class="carousel-wrapper">
+    <p-carousel
+      [value]="moviesData"
+      [numVisible]="5"
+      [numScroll]="5"
+      [responsiveOptions]="responsiveOptions"
+      [circular]="false"
+      [showIndicators]="false"
+      class="carousel"
+    >
+      <ng-template pTemplate="header">
+        <div class="carousel__header">
+          <i class="pi pi-{{ carouselIcon }}"></i>
+          <h2>{{ carouselTitle }}</h2> 
         </div>
-      </a>
-    </ng-template>
-  </p-carousel>
-</section>
+      </ng-template>
+  
+      <ng-template let-movie pTemplate="item">
+        <a routerLink="{{movie.id}}">
+          <div class="carousel__item">
+            <div>
+              <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
+              <!-- <p-button
+                class="carousel__item__icon"
+                [outlined]="true"
+                icon="pi pi-heart"
+              ></p-button> -->
+            </div>
+            <div class="carousel__item__info">
+              <div>
+                <h3 title="{{ movie.title }}">
+                  {{ movie.title }}
+                </h3>
+              </div>
+              <div class="carousel__item__genres">
+                @for (item of movie.genreNames; track $index) {
+                <span>{{ item }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-template>
+    </p-carousel>
+  </section>
+  
+} @else {
+  <app-spinner></app-spinner>
+}
