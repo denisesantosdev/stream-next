@@ -12,7 +12,7 @@
   margin-bottom: 1rem;
 
   i {
-    color: variables.$accent;
+    color: (var(--primary-color));
   }
 
   h2 {

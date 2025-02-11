@@ -1,71 +1,73 @@
-<header class="header">
-  <p-button
-    routerLink=""
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    label="Home"
-    [text]="true"
-  />
-
-  <div class="header__nav-wrapper">
-    <!-- <p-inputSwitch class="header__InputSwitch" /> -->
-    <app-search></app-search>
-
-    <div class="header__mobile-menu">
-      <p-sidebar [(visible)]="isMenuOpen" position="right">
-        <nav>
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <p-button
-                routerLink="auth"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                severity="secondary"
-                [outlined]="true"
-                size="small"
-                >Sign In</p-button
-              >
-            </li>
-            <li>
-              <p-button
-                routerLink="auth"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                size="small"
-                >Create Account</p-button
-              >
-            </li>
-          </ul>
-          <app-social-links></app-social-links>
-        </nav>
-      </p-sidebar>
-      <p-button (onClick)="toggleMenu()" icon="pi pi-bars" />
+<div class="header-wrapper">
+  <header class="header">
+    <p-button
+      routerLink=""
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      label="Home"
+      [text]="true"
+    />
+  
+    <div class="header__nav-wrapper">
+      <!-- <p-inputSwitch class="header__InputSwitch" /> -->
+      <app-search></app-search>
+  
+      <div class="header__mobile-menu">
+        <p-sidebar [(visible)]="isMenuOpen" position="right">
+          <nav>
+            <!-- <ul class="header__nav-list">
+              <li class="header__nav-item">
+                <p-button
+                  routerLink="auth"
+                  routerLinkActive="active"
+                  ariaCurrentWhenActive="page"
+                  severity="secondary"
+                  [outlined]="true"
+                  size="small"
+                  >Sign In</p-button
+                >
+              </li>
+              <li>
+                <p-button
+                  routerLink="auth"
+                  routerLinkActive="active"
+                  ariaCurrentWhenActive="page"
+                  size="small"
+                  >Create Account</p-button
+                >
+              </li>
+            </ul> -->
+            <app-social-links></app-social-links>
+          </nav>
+        </p-sidebar>
+        <p-button (onClick)="toggleMenu()" icon="pi pi-bars" />
+      </div>
+  
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+         <!--  <li class="header__nav-item">
+            <p-button
+              routerLink="auth"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              severity="secondary"
+              [outlined]="true"
+              size="small"
+              >Sign In</p-button
+            >
+          </li>
+          <li>
+            <p-button
+              routerLink="auth"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              size="small"
+              >Create Account</p-button
+            >
+          </li> -->
+        </ul>
+        <app-social-links></app-social-links>
+      </nav>
     </div>
-
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <p-button
-            routerLink="auth"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            severity="secondary"
-            [outlined]="true"
-            size="small"
-            >Sign In</p-button
-          >
-        </li>
-        <li>
-          <p-button
-            routerLink="auth"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            size="small"
-            >Create Account</p-button
-          >
-        </li>
-      </ul>
-      <app-social-links></app-social-links>
-    </nav>
-  </div>
-</header>
+  </header>
+</div>

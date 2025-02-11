@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ViewportScroller } from '@angular/common';
 
@@ -17,22 +17,37 @@ export class HeroComponent {
   @Input() heroMovie: any;
   background: string | undefined = '';
   trailerEl: any;
+  btnIsClicked: boolean = true;
 
-  constructor(private router: Router, private scroller: ViewportScroller) {}
+  constructor(
+    private router: Router,
+    private scroller: ViewportScroller,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.background = `background-image: linear-gradient(to top, #121212 30%, #12121290, transparent, #121212) , url(${this.heroMovie.background})`;
+    this.background = `background-image: var(--hero-gradient), url(${this.heroMovie.background})`;
+
+    //this.background = `background-image: url(${this.heroMovie.background})`;
 
     this.trailerEl = document.getElementById('trailer');
   }
 
+  ngDoCheck() {
+    if (this.route.snapshot.fragment === 'trailer' && this.btnIsClicked) {
+      this.trailerEl = document.getElementById('trailer');
+      if (this.trailerEl) {
+        this.scroller.scrollToAnchor('trailer');
+        this.btnIsClicked = false;
+      }
+    }
+  }
+
   goDown() {
     if (this.trailerEl) {
-      this.trailerEl.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
+      this.scroller.scrollToAnchor('trailer');
+    } else {
+      this.router.navigate([this.heroMovie.id], { fragment: 'trailer' });
     }
   }
 }

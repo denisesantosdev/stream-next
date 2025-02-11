@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  afterNextRender,
+  afterRender,
+  Component,
+  ElementRef,
+} from '@angular/core';
 import {
   ActivatedRoute,
   RouterOutlet,
@@ -16,8 +21,9 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
-import { CarouselComponent } from "../../components/carousel/carousel.component";
-import {SafePipe} from "safe-pipe"
+import { CarouselComponent } from '../../components/carousel/carousel.component';
+import { SafePipe } from 'safe-pipe';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-movie-details',
@@ -36,8 +42,8 @@ import {SafePipe} from "safe-pipe"
     RippleModule,
     DividerModule,
     TagModule,
-    CarouselComponent
-],
+    CarouselComponent,
+  ],
   templateUrl: './movie-page.component.html',
   styleUrl: './movie-page.component.scss',
 })
@@ -45,29 +51,45 @@ export class MoviePageComponent {
   movieId: string = '';
   movieDetails: any | undefined;
   link: any;
-  similarMovies: any | undefined
-  watchProvidersLink: any
+  similarMovies: any | undefined;
+  watchProvidersLink: any;
+  trailerEl: any;
 
   constructor(
     private route: ActivatedRoute,
-    private service: MovieApiService
-  ) {}
+    private service: MovieApiService,
+    private scroller: ViewportScroller,
+    private elementRef: ElementRef<HTMLElement>
+  ) {
+    afterRender({
+      /*  read: () => {
+        if (this.route.snapshot.fragment === 'trailer') {
+          this.trailerEl = document.getElementById('trailer');
+          console.log(this.trailerEl);
+          if (this.trailerEl) {
+            this.scroller.scrollToAnchor("trailer")
+             
+          }
+        }
+      } */
+    });
+  }
 
   ngOnInit() {
     this.movieId = this.route.snapshot.params['id'];
     this.link = `${this.movieId}`;
-    
+
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
       this.movieDetails = this.service.shapeMovieDetails(response);
-      console.log(this.movieDetails);
+      //console.log(this.movieDetails);
     });
 
-     this.service.getSimilarMovie(this.movieId).subscribe((response: any) => {
-       this.similarMovies = this.service.shapeData(response)
+    this.service.getSimilarMovie(this.movieId).subscribe((response: any) => {
+      this.similarMovies = this.service.shapeData(response);
     });
 
     this.service.getWatchProviders(this.movieId).subscribe((response: any) => {
-      this.watchProvidersLink = response.results['BR']?.link 
+      this.watchProvidersLink = response.results['BR']?.link;
     });
   }
 }

@@ -1,14 +1,22 @@
 @use "../../styles/variables.scss";
 
 .movie-page-wrapper {
-  margin: auto;
-  max-width: variables.$breakpoint-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.movie-wrapper {
+  background-color: var(--surface-card);
 }
 
 .movie {
+  margin: auto;
+  max-width: variables.$breakpoint-lg;
   display: grid;
   gap: 2rem;
-
+  padding: 1rem;
+  
   @media (min-width: variables.$breakpoint-xs) {
     grid-template-columns: 1fr 2.5fr;
   }
@@ -20,13 +28,14 @@
 
   img {
     max-width: 100%;
+    margin-bottom: 2rem;
   }
 }
 
 .movie__btns {
-   display: grid;
-   gap: 1rem;
-   max-width: 100%;
+  display: grid;
+  gap: 1rem;
+  max-width: 100%;
 }
 
 .movie__btn-link {

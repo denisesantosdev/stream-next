@@ -33,12 +33,16 @@ export class SearchComponent {
     this.movieApiService
       .searchMovies(event.query)
       .subscribe((response: any) => {
+        //console.log(response);
+        
         this.suggestions = response.results.map((item: any) => {
           return {
             id: item.id,
-            title: item.title,
+            title: `${item.title} (${new Date(item.release_date).getFullYear()})`,
           };
         });
+
+        console.log(this.suggestions);
       });
   }
 
