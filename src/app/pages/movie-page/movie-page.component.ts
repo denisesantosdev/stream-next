@@ -61,18 +61,6 @@ export class MoviePageComponent {
     private scroller: ViewportScroller,
     private elementRef: ElementRef<HTMLElement>
   ) {
-    afterRender({
-      /*  read: () => {
-        if (this.route.snapshot.fragment === 'trailer') {
-          this.trailerEl = document.getElementById('trailer');
-          console.log(this.trailerEl);
-          if (this.trailerEl) {
-            this.scroller.scrollToAnchor("trailer")
-             
-          }
-        }
-      } */
-    });
   }
 
   ngOnInit() {

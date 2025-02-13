@@ -19,7 +19,7 @@
   
       <ng-template let-movie pTemplate="item">
         <a routerLink="{{movie.id}}">
-          <div class="carousel__item">
+          <div class="carousel__item card">
             <div>
               <img src="{{ movie.poster }}" alt="" class="carousel__item__image" />
               <!-- <p-button
@@ -45,6 +45,8 @@
       </ng-template>
     </p-carousel>
   </section>
+
+  <div class="box"></div>
   
 } @else {
   <app-spinner></app-spinner>

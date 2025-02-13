@@ -38,7 +38,7 @@
 // @import "primeng/resources/themes/arya-blue/theme.css";
 // @import "primeng/resources/themes/arya-green/theme.css";
 // @import "primeng/resources/themes/arya-orange/theme.css";
- @import "primeng/resources/themes/arya-purple/theme.css";
+@import "primeng/resources/themes/arya-purple/theme.css";
 // @import "primeng/resources/themes/nova/theme.css";
 // @import "primeng/resources/themes/nova-alt/theme.css";
 // @import "primeng/resources/themes/nova-accent/theme.css";
@@ -56,7 +56,12 @@
 }
 
 :root {
-  --hero-gradient: linear-gradient(to bottom, var(--surface-ground) 0%, var(--surface-c) 20%, var(--surface-ground) 80%)
+  --hero-gradient: linear-gradient(
+    to bottom,
+    var(--surface-ground) 0%,
+    var(--surface-c) 20%,
+    var(--surface-ground) 80%
+  );
 }
 
 body {
@@ -85,4 +90,35 @@ a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
+}
+
+.text-animation {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--blue-300),
+    var(--purple-300),
+    var(--pink-500),
+    var(--red-500)
+  );
+  background-size: 200% 200%;
+  animation: rainbow 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--text-color);
+  transition: color 0.2s ease-in-out;
+}
+.text-animation:hover {
+  color: rgba(0, 0, 0, 0);
+}
+@keyframes rainbow {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
