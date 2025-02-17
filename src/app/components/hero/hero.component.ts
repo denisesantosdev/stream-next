@@ -17,7 +17,6 @@ export class HeroComponent {
   @Input() heroMovie: any;
   background: string | undefined = '';
   trailerEl: any;
-  btnIsClicked: boolean = true;
 
   constructor(
     private router: Router,
@@ -31,15 +30,9 @@ export class HeroComponent {
     //this.background = `background-image: url(${this.heroMovie.background})`;
 
     this.trailerEl = document.getElementById('trailer');
-  }
 
-  ngDoCheck() {
-    if (this.route.snapshot.fragment === 'trailer' && this.btnIsClicked) {
-      this.trailerEl = document.getElementById('trailer');
-      if (this.trailerEl) {
-        this.scroller.scrollToAnchor('trailer');
-        this.btnIsClicked = false;
-      }
+    if (this.route.snapshot.fragment === 'trailer') {
+      this.scroller.scrollToAnchor('trailer');
     }
   }
 
