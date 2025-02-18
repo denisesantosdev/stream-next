@@ -50,12 +50,8 @@
               <div class="movie-details">
                 <ul class="movie-details__info">
                   <li>
-                    <span><i class="pi pi-language"></i> Language:</span>
-                    {{ movieDetails.language }}
-                  </li>
-                  <li>
                     <span><i class="pi pi-map-marker"></i> Country:</span>
-                    {{ movieDetails.country }}
+                    {{ getFlagEmoji(movieDetails.country) }}
                   </li>
                   <li>
                     <span><i class="pi pi-calendar"></i> Release Date:</span>
@@ -80,6 +76,14 @@
                   <li>
                     <span><i class="pi pi-check"></i> Status:</span>
                     {{ movieDetails.status }}
+                  </li>
+                  <li class="movie__details-directing">
+                    <span><i class="pi pi-user"></i> Directors:</span>
+                    <ul>
+                      @for (item of movieDetails.directors; track $index) {
+                      <li>{{ item.name }}</li>
+                      }
+                    </ul>
                   </li>
                 </ul>
                 <ul class="movie-details__genres">
@@ -111,13 +115,13 @@
   </div>
 
   <div #trailer id="trailer" class="youtube-video-container">
-    <div>
+    <!-- <div>
       <iframe
         [src]="movieDetails.trailer[0].url | safe : 'resourceUrl'"
         frameborder="0"
         allowfullscreen
       ></iframe>
-    </div>
+    </div> -->
   </div>
 
   <app-carousel

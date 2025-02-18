@@ -69,7 +69,7 @@ export class MoviePageComponent {
 
     this.service.getMovieDetails(this.movieId).subscribe((response) => {
       this.movieDetails = this.service.shapeMovieDetails(response);
-      //console.log(this.movieDetails);
+      console.log(this.movieDetails);
     });
 
     this.service.getSimilarMovie(this.movieId).subscribe((response: any) => {
@@ -80,4 +80,13 @@ export class MoviePageComponent {
       this.watchProvidersLink = response.results['BR']?.link;
     });
   }
+
+  getFlagEmoji(countryCode: any) {
+    const codePoints = countryCode
+      .toUpperCase()
+      .split('')
+      .map((char: any) =>  127397 + char.charCodeAt());
+    return String.fromCodePoint(...codePoints);
+  }
+  
 }

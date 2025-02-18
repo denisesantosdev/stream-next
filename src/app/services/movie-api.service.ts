@@ -88,12 +88,12 @@ export class MovieApiService {
       imdbUrl: `http://imdb.com/title/${movieData.imdb_id}`,
       language: movieData.original_language,
       description: movieData.overview,
-      releaseDate: movieData.release_date,
-      popularity: movieData.popularity,
+      releaseDate: new Date(movieData.release_date).toLocaleString("pt-BR", {dateStyle: 'medium'}),
+      popularity: Math.floor(movieData.popularity),
       runtime: movieData.runtime,
       status: movieData.status,
       country: movieData.origin_country[0],
-      averageRating: movieData.vote_average,
+      averageRating: Math.floor(movieData.vote_average),
       homepage: movieData.homepage,
       tagline: movieData.tagline,
       videos: movieData.videos.results.map((item: any) => {
@@ -113,6 +113,9 @@ export class MovieApiService {
           profileImg: `https://image.tmdb.org/t/p/w300${item.profile_path}`,
         };
       }),
+      directors: movieData.credits.crew.filter((item:any)=>{
+        return item.job === "Director" 
+      })
     };
   }
 

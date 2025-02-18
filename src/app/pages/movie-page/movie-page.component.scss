@@ -16,7 +16,7 @@
   display: grid;
   gap: 2rem;
   padding: 1rem;
-  
+
   @media (min-width: variables.$breakpoint-xs) {
     grid-template-columns: 1fr 2.5fr;
   }
@@ -71,6 +71,25 @@
 
   i {
     margin-right: 0.5rem;
+  }
+}
+
+.movie__details-directing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    margin-bottom: 0.5rem;
+    margin-left: 1.7rem;
+  }
+
+  @media (min-width: variables.$breakpoint-sm) {
+    flex-direction: row;
+
+    li {
+      margin-left: 0;
+    }
   }
 }
 
